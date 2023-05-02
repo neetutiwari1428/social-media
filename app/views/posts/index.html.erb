@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+
+
+<%= link_to 'New Post', new_post_path %>
+<%= turbo_stream_from :posts %>
+
+<%= turbo_frame_tag :post_form do %>
+  <%= render 'posts/form', post: @post %>
+<% end %>
+
+<%= turbo_frame_tag :posts do %>
+  <%= render @posts %>
+<% end %>
